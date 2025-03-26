@@ -1,17 +1,47 @@
 <!DOCTYPE html>
 <html>
-    <body>
+    <head>
+        <meta charset="utf-8">
+        <title>Cálculo da porcentagem de gay</title>
 
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        
+        <script type="text/Javascript">
+            function sum(x, y) {
+                return x + y;
+            }
+        </script>
+    </head>
+    <body>
     <h1>Ola mundo</h1>
-        <h2>Lista ordenada</h2>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-        <h2>Lista ordenada</h2>
-        <ol>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-        </ol>
+        <form action="/home/suares/web_mobile/aula-1.html" method="post">
+
+            <label for="login">Login:</label>
+            <input type="text" id="login" name="login">
+
+            <br>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha">
+            <br>
+            Gênero:
+            <input type="radio" name="genero" value="1">Masculino
+            <input type="radio" name="genero" value="2">Feminino
+            <input type="radio" name="genero" value="O">Outro
+            <br>
+            Pizzas: <input list="pizzas" name="pizzas">
+            <datalist id="pizzas">
+                <option value="Calabresa">
+                <option value="Mussarela">
+                <option value="Portuguesa">
+                <option value="Frango com Catupiry">
+            </datalist>
+            <button type="button" onclick="alert('RECEBA')">Verificar</button>
+            <button type="button" onclick="alert(sum(20, 10))">Verificar</button> 
+
+            <br>
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Limpar">
+        </form>
     </body>
 </html>
