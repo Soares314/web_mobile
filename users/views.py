@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.views import View
 from django.contrib.auth import authenticate, login, logout
 from django.conf import settings
@@ -8,10 +7,11 @@ from rest_framework.authtoken.views import ObtainAuthToken
 
 class Login(View):
     def get(self, request):
+        contexto = {'error': ''}
         if request.user.is_authenticated:
-            return HttpResponse('Você já está logado.')
+            return redirect('index/')
         else:
-            return render(request, 'auth_screen.html')
+            return render(request, 'auth_screen.html', contexto)
     
     def post(self, request):
         usuario = request.POST.get('nome', None)
@@ -21,6 +21,7 @@ class Login(View):
         if user is not None:
             if user.is_active:
                 login(request, user)
+                return redirect('index/')
             else:
                 return render(request, 'auth_screen.html', {'error': 'Usuário está inativo'})
         else:
