@@ -1,0 +1,97 @@
+body {
+    background: #EDD8B8;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+
+.tribal-tech-container {
+    background: #C7A677;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    padding: 48px 32px;
+    width: 350px;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.tribal-logo {
+    font-family: 'Orbitron', 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: white;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+}
+
+.tribal-pattern {
+    width: 60px;
+    margin: 0 auto 24px auto;
+    display: block;
+    z-index: 1;
+}
+
+.tribal-tech-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: relative;
+    z-index: 1;
+}
+
+.tribal-tech-form input {
+    padding: 12px 14px;
+    border: none;
+    border-radius: 8px;
+    background: #fff;
+    color: #333;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    transition: box-shadow 0.2s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.tribal-tech-form input:focus {
+    box-shadow: 0 0 0 2px #a6623b;
+}
+
+.tribal-tech-form button {
+    background: #1B5E20;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Montserrat', Arial, sans-serif;
+    transition: background 0.2s, color 0.2s;
+}
+
+.tribal-tech-form button:hover {
+    box-shadow: 0 0 0 2px #a6623b;
+}
+
+.minimal-link {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.minimal-link a {
+    color: #ffb300;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.minimal-link a:hover {
+    color: #00ffe7;
+}

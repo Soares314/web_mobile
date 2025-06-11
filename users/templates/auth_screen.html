@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Marajoa</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="tribal-tech-container">
+        <div class="tribal-logo">Bem vindo ao Marajoa!</div>
+
+        <svg class="tribal-pattern" viewBox="0 0 60 20">
+            <polyline points="0,10 10,0 20,10 30,0 40,10 50,0 60,10" 
+                style="fill:none;stroke:#ffb300;stroke-width:3;stroke-linecap:round;stroke-linejoin:round" />
+        </svg>
+        <form class="tribal-tech-form" method="post">
+            {% csrf_token %}
+            <input type="text" name="nome" placeholder="Usuário" required>
+            <input type="password" name="senha" placeholder="Senha" required>
+            <button type="submit">Entrar</button>
+        </form>
+        <div class="minimal-link">
+            <a href="#">Esqueceu a senha?</a>
+        </div>
+    </div>
+</body>
+</html>
