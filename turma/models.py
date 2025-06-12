@@ -1,5 +1,5 @@
 from django.db import models
-from users.models import Perfil
+from perfil.models import Perfil
 from turma.consts import *
 
 class Propriedade(models.Model):
@@ -24,9 +24,9 @@ class Atividade(models.Model):
 class Turma(models.Model):
     nome = models.CharField(max_length=100)
     materia = models.SmallIntegerField(choices=OPCOES_MATERIA)
-    tutor = models.ManyToManyField(Perfil, related_name='tutor_turma')
-    propriedades = models.ManyToManyField(Propriedade)
-    alunos = models.ManyToManyField(Perfil, related_name='alunos_turma')
+    tutor = models.ManyToManyField(Perfil, related_name='tutor_turma', blank=True)
+    propriedades = models.ManyToManyField(Propriedade, blank=True)
+    alunos = models.ManyToManyField(Perfil, related_name='alunos_turma', blank=True)
     avisos = models.ManyToManyField(Aviso, blank=True)
     aulas = models.ForeignKey(Aula, on_delete=models.CASCADE, blank=True, null=True)
     atividades = models.ForeignKey(Atividade, on_delete=models.CASCADE, blank=True, null=True)

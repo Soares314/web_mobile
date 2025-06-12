@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
     'turma.apps.TurmaConfig',
+    'perfil.apps.PerfilConfig',
     'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
@@ -119,6 +120,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+LOGIN_URL = '/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/

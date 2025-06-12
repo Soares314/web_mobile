@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.views.generic import ListView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from turma.models import Turma
+from turma.forms import TurmaForm
+from django.urls import reverse_lazy
 
 class ListarTurmas(LoginRequiredMixin, ListView):
     model = Turma
@@ -10,13 +12,14 @@ class ListarTurmas(LoginRequiredMixin, ListView):
     
 class CriarTurma(LoginRequiredMixin, CreateView):
     model = Turma
-    fields = ['nome', 'materia', 'tutor', 'alunos', 'propriedades']
-    template_name = 'criar_turma.html'
-    
+    form_class = TurmaForm
+    template_name = 'novo.html'
+    success_url = reverse_lazy('listar-turmas')
+
     def form_valid(self, form):
-        form.instance.tutor = self.request.user.perfil
-        return super().form_valid(form)
-    
-    def get_success_url(self):
-        return redirect('listar_turmas')
-    
+        response = super().form_valid(form)
+        from perfil.models import Perfil
+        perfil, _ = Perfil.objects.get_or_create(user=self.request.user)
+        self.object.tutor.add(perfil)
+        return response
+
