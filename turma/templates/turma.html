@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Mural da Turma{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <h2 class="mb-4 fw-bold" style="color: #1B5E20;">Mural da Turma</h2>
+    <div class="mb-4">
+        <form method="post" action="#">
+            {% csrf_token %}
+            <div class="mb-3">
+                <textarea class="form-control" name="mensagem" rows="3" placeholder="Escreva um aviso, mensagem ou recado para a turma..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Publicar no mural</button>
+        </form>
+    </div>
+    <hr>
+    <div class="mural-list">
+        <!-- Exemplo de mensagens do mural -->
+        {% for aviso in avisos %}
+        <div class="card mb-3 shadow-sm">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="fw-semibold" style="color: #388E3C;">{{ aviso.titulo }}</span>
+                    <small class="text-muted">{{ aviso.data_publicacao|date:'d/m/Y H:i' }}</small>
+                </div>
+                <p class="mb-0">{{ aviso.conteudo }}</p>
+            </div>
+        </div>
+        {% empty %}
+        <div class="alert alert-info text-center">Nenhum aviso publicado ainda.</div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

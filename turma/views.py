@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from turma.models import Turma
 from turma.forms import TurmaForm
@@ -22,4 +22,20 @@ class CriarTurma(LoginRequiredMixin, CreateView):
         perfil, _ = Perfil.objects.get_or_create(user=self.request.user)
         self.object.tutor.add(perfil)
         return response
+
+class EditarTurma(LoginRequiredMixin, UpdateView):
+    model = Turma
+    form_class = TurmaForm
+    template_name = 'editar.html'
+    success_url = reverse_lazy('listar-turmas')
+    
+class DeletarTurma(LoginRequiredMixin, DeleteView):
+    model = Turma
+    template_name = 'deletar.html'
+    success_url = reverse_lazy('listar-turmas')
+    
+class AcessarMural(LoginRequiredMixin, ListView):
+    model = Turma
+    context_object_name = 'turma'
+    template_name = 'mural.html'
 
