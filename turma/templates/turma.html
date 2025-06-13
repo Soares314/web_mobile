@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="container py-4">
-    <h2 class="mb-4 fw-bold" style="color: #1B5E20;">Mural da Turma</h2>
+    <h2 class="mb-4 fw-bold" style="color: #1B5E20;">{{ turma.nome }}</h2>
     <div class="mb-4">
         <form method="post" action="#">
             {% csrf_token %}

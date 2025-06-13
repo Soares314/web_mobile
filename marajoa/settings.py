@@ -81,9 +81,9 @@ WSGI_APPLICATION = 'marajoa.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
+        'NAME': 'marajoa_database',
         'USER': 'postgres',
-        'PASSWORD': '050602',
+        'PASSWORD': 'postgres',
         'HOST': 'localhost',
         'PORT': '5432',
     }
