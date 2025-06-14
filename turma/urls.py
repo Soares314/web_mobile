@@ -7,4 +7,6 @@ urlpatterns = [
     path('editar/<int:pk>/', EditarTurma.as_view(), name='editar-turma'),
     path('deletar/<int:pk>/', DeletarTurma.as_view(), name='deletar-turma'),
     path('<int:pk>/', AcessarTurma.as_view(), name='acessar-turma'),
+    path('<int:pk>/<str:tipo>/novo/', CriarEvento.as_view(), name='criar-evento'),
+    path('<int:pk>/entrar/', EntrarTurma.as_view(), name='entrar-turma'),
 ]

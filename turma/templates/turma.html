@@ -10,24 +10,25 @@
             <div class="mb-3">
                 <textarea class="form-control" name="mensagem" rows="3" placeholder="Escreva um aviso, mensagem ou recado para a turma..."></textarea>
             </div>
-            <button type="submit" class="btn btn-success">Publicar no mural</button>
+            <a class="btn" style="background: var(--success); color: #fff;" href="{% url 'criar-evento' pk=turma.id tipo='aviso' %}">Novo Aviso</a>
+            <a class="btn" style="background: var(--success); color: #fff;" href="{% url 'criar-evento' pk=turma.id tipo='aula' %}">Nova Aula</a>
+            <a class="btn" style="background: var(--success); color: #fff;" href="{% url 'criar-evento' pk=turma.id tipo='atividade' %}">Nova Atividade</a>
         </form>
     </div>
     <hr>
     <div class="mural-list">
-        <!-- Exemplo de mensagens do mural -->
-        {% for aviso in avisos %}
+        {% for evento in eventos %}
         <div class="card mb-3 shadow-sm">
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center mb-2">
-                    <span class="fw-semibold" style="color: #388E3C;">{{ aviso.titulo }}</span>
-                    <small class="text-muted">{{ aviso.data_publicacao|date:'d/m/Y H:i' }}</small>
+                  <h5 class="title">{{ evento.titulo }}</h5>
                 </div>
-                <p class="mb-0">{{ aviso.conteudo }}</p>
+                <hr style="margin-top: 0.5rem; margin-bottom: 0.5rem;">
+                <p class="mb-0">{{ evento.descricao }}</p>
             </div>
         </div>
         {% empty %}
-        <div class="alert alert-info text-center">Nenhum aviso publicado ainda.</div>
+        <div class="alert alert-info text-center">Nenhum evento publicado ainda.</div>
         {% endfor %}
     </div>
 </div>

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>
+    {% if tipo == 'aviso' %}
+      Novo Aviso
+    {% elif tipo == 'aula' %}
+      Nova Aula
+    {% elif tipo == 'atividade' %}
+      Nova Atividade
+    {% else %}
+      Novo Evento
+    {% endif %}
+  </h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Salvar</button>
+  </form>
+{% endblock %}
