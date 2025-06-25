@@ -9,6 +9,7 @@ class Propriedade(models.Model):
 class Turma(models.Model):
     nome = models.CharField(max_length=100)
     materia = models.SmallIntegerField(choices=OPCOES_MATERIA)
+    descricao = models.TextField(blank=True, null=True)
     tutor = models.ManyToManyField(Perfil, related_name='tutor_turma', blank=True)
     propriedades = models.OneToOneField(Propriedade, on_delete=models.CASCADE, blank=True, null=True)
     alunos = models.ManyToManyField(Perfil, related_name='aluno_turma', blank=True)

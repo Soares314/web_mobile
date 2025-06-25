@@ -9,4 +9,5 @@ urlpatterns = [
     path('<int:pk>/', AcessarTurma.as_view(), name='acessar-turma'),
     path('<int:pk>/<str:tipo>/novo/', CriarEvento.as_view(), name='criar-evento'),
     path('<int:pk>/entrar/', EntrarTurma.as_view(), name='entrar-turma'),
+    path('api/', include('turma.api-urls'))
 ]

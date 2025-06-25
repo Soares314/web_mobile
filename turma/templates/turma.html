@@ -5,15 +5,14 @@
 <div class="container py-4">
     <h2 class="mb-4 fw-bold" style="color: #1B5E20;">{{ turma.nome }}</h2>
     <div class="mb-4">
+        {% if e_o_tutor %}
         <form method="post" action="#">
             {% csrf_token %}
-            <div class="mb-3">
-                <textarea class="form-control" name="mensagem" rows="3" placeholder="Escreva um aviso, mensagem ou recado para a turma..."></textarea>
-            </div>
             <a class="btn" style="background: var(--success); color: #fff;" href="{% url 'criar-evento' pk=turma.id tipo='aviso' %}">Novo Aviso</a>
             <a class="btn" style="background: var(--success); color: #fff;" href="{% url 'criar-evento' pk=turma.id tipo='aula' %}">Nova Aula</a>
             <a class="btn" style="background: var(--success); color: #fff;" href="{% url 'criar-evento' pk=turma.id tipo='atividade' %}">Nova Atividade</a>
         </form>
+        {% endif %}
     </div>
     <hr>
     <div class="mural-list">
